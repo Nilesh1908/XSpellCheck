@@ -17,7 +17,8 @@ function App() {
   const handleChange = (e) => {
     const inputText = e.target.value
     setText(inputText)
-    const words = inputText.split("/\s+/");
+    
+    const words = inputText.match(/\b\w+\b/g) || [];
 
     const wrongword = words.find((word) => {
       if(!word) return false;
@@ -28,7 +29,7 @@ function App() {
     if(wrongword){
       const cleanedword = wrongword.replace(/[.,!?;:]/g, "");
       const correction = customDictionary[cleanedword.toLowerCase()];
-      setSuggestion(`Did you mean ${correction}?`);
+      setSuggestion(`Did you mean: ${correction}?`);
     }else {
       setSuggestion("");
     }
@@ -36,7 +37,7 @@ function App() {
 
   return (
     <div className="App" style={{ padding: "20px" }}>
-      <h2>XSpell Check and Auto Corrcction</h2>
+      <h2>Spell Check and Auto Corrcction</h2>
       <textarea
         rows="5"
         cols="60"
