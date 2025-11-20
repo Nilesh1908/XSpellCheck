@@ -36,7 +36,7 @@ function App() {
 
   return (
     <div className="App" style={{ padding: "20px" }}>
-      <h2>XSpellCheck - React Spell Checker</h2>
+      <h2>XSpell Check and Auto Corrcction</h2>
       <textarea
         rows="5"
         cols="60"
